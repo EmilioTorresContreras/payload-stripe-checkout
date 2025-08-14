@@ -16,7 +16,12 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { stripeCheckout } from './endpoints/stripeCheckout';
 
+const test = (req, res) => {
+  console.log('test endpoint called');
+  res.status(200).json({ message: 'ok' });
+};
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -65,6 +70,13 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users],
+  endpoints: [
+    {
+      path: '/checkout',
+      method: 'post',
+      handler: stripeCheckout,
+    },
+  ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
