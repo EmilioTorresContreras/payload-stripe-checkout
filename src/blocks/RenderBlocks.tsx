@@ -8,6 +8,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { CheckoutButtonBlock } from './CheckoutButton/Component'
+import { PaymentStatusBlock } from './PaymentStatus/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -16,6 +17,7 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   checkoutButton: CheckoutButtonBlock,
+  paymentStatus: PaymentStatusBlock
 }
 
 export const RenderBlocks: React.FC<{

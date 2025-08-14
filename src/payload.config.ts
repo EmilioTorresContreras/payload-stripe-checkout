@@ -17,11 +17,8 @@ import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 import { stripeCheckout } from './endpoints/stripeCheckout';
+import { paymentSession } from './endpoints/paymentSession';
 
-const test = (req, res) => {
-  console.log('test endpoint called');
-  res.status(200).json({ message: 'ok' });
-};
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -75,6 +72,11 @@ export default buildConfig({
       path: '/checkout',
       method: 'post',
       handler: stripeCheckout,
+    },
+    {
+      path: '/payment-session',
+      method: 'post',
+      handler: paymentSession,
     },
   ],
   cors: [getServerSideURL()].filter(Boolean),

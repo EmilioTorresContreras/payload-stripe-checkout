@@ -21,6 +21,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { CheckoutButton } from '@/blocks/CheckoutButton/config'
+import { PaymentStatus } from '@/blocks/PaymentStatus/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -76,7 +77,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, CheckoutButton],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, CheckoutButton, PaymentStatus],
               required: true,
               admin: {
                 initCollapsed: true,

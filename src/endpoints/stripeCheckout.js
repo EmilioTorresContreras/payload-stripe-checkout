@@ -18,6 +18,7 @@ export const stripeCheckout = async (request) => {
         },
       ],
       success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/success?sessionId={CHECKOUT_SESSION_ID}`,
+      //success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/success`,
       cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cancelled`,
       metadata: {
         schoolId: schoolId,
