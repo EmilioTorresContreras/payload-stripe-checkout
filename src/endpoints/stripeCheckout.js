@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 export const stripeCheckout = async (request) => {
   try {
-    const { priceId, schoolId, userId } = await request.json();
+    const { priceId, schoolId, userId, plan } = await request.json();
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
       line_items: [
@@ -22,7 +22,8 @@ export const stripeCheckout = async (request) => {
       cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cancelled`,
       metadata: {
         schoolId: schoolId,
-        userId: userId
+        userId: userId,
+        plan: plan
       }
     });
 

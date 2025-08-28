@@ -21,9 +21,9 @@ export const CheckoutButton: Block = {
       required: true,
     },
     {
-      name: 'title',
+      name: 'plan',
       type: 'text',
-      label: 'Titulo',
+      label: 'Plan',
       required: true,
     },
     {

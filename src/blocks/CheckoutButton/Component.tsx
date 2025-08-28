@@ -4,20 +4,20 @@ import React from 'react';
 type Props = {
     priceId: string;
   buttonText: string;
-  title?: string;
+  plan?: string;
   subtitle?: string;
   id?: string;
   schoolId?: string;
   userId?: string;
 };
 
-export const CheckoutButtonBlock: React.FC<Props> = ({ priceId, buttonText, title, subtitle, id, schoolId, userId }) => {
+export const CheckoutButtonBlock: React.FC<Props> = ({ priceId, buttonText, plan, subtitle, id, schoolId, userId }) => {
   const handleClick = async () => {
     try {
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ priceId, schoolId, userId }),
+        body: JSON.stringify({ priceId, schoolId, userId, plan }),
       });
 
       const data = await res.json();
@@ -50,9 +50,9 @@ export const CheckoutButtonBlock: React.FC<Props> = ({ priceId, buttonText, titl
               />
             </svg>
           </div>
-          {title && (
+          {plan && (
             <h3 className="text-2xl font-bold text-white mb-2">
-              {title}
+              Plan {plan}
             </h3>
           )}
           {subtitle && (
